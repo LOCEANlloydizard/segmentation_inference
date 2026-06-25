@@ -1,0 +1,4 @@
+[run]
+omit =
+    */hake-segmentation-inference/tests/*
+    */hake-segmentation-inference/test_data/*
