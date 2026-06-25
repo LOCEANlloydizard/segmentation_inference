@@ -1,0 +1,57 @@
+{
+  "shape": [
+    5,
+    500,
+    761
+  ],
+  "data_type": "float64",
+  "chunk_grid": {
+    "name": "regular",
+    "configuration": {
+      "chunk_shape": [
+        5,
+        1698,
+        761
+      ]
+    }
+  },
+  "chunk_key_encoding": {
+    "name": "default",
+    "configuration": {
+      "separator": "/"
+    }
+  },
+  "fill_value": "NaN",
+  "codecs": [
+    {
+      "name": "bytes",
+      "configuration": {
+        "endian": "little"
+      }
+    },
+    {
+      "name": "zstd",
+      "configuration": {
+        "level": 0,
+        "checksum": false
+      }
+    }
+  ],
+  "attributes": {
+    "long_name": "Mean volume backscattering strength (MVBS, mean Sv re 1 m-1)",
+    "units": "dB",
+    "cell_methods": "ping_time: mean (interval: 5 second comment: ping_time is the interval start) depth: mean (interval: 1.0 meter comment: depth is the interval start)",
+    "binning_mode": "physical units",
+    "range_meter_interval": "1.0m",
+    "ping_time_interval": "5s",
+    "_FillValue": "AAAAAAAA+H8="
+  },
+  "dimension_names": [
+    "channel",
+    "ping_time",
+    "depth"
+  ],
+  "zarr_format": 3,
+  "node_type": "array",
+  "storage_transformers": []
+}
