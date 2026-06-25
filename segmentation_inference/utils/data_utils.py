@@ -43,7 +43,10 @@ def get_MVBS_tensor(
         with values scaled to the range ``[0, 255]`` and dtype ``float32``.
     """
     # Find the right channel sequence
-    ch_wanted = [int((abs(MVBS_ds["frequency_nominal"] - freq)).argmin()) for freq in freq_wanted]
+    ch_wanted = [
+        int((abs(MVBS_ds["frequency_nominal"] - freq)).argmin(dim="channel"))
+        for freq in freq_wanted
+    ]
 
     # Crucial for model prediction:
     # - order of dimension (channel, depth, ping_time)

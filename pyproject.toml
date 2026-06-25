@@ -3,8 +3,8 @@ requires = ["uv_build"]
 build-backend = "uv_build"
 
 [project]
-name = "hake_segmentation_inference"
-description = "Detecting hake presence in processed echo data."
+name = "segmentation_inference"
+description = "Detecting fish presence in processed echo data."
 readme = "README.md"
 version = "0.0"
 requires-python = ">=3.11,<3.14"
@@ -32,10 +32,6 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy",
-    "zarr",
-    "netcdf4",
-    "xarray",
     "torch",
     "torchvision",
 ]
@@ -52,17 +48,20 @@ dev = [
     "pytest",
     "pytest-cov",
     "build",
+    "zarr",
+    "netcdf4",
+    "xarray",
 ]
 
 [tool.uv.build-backend]
-module-name = "hake_segmentation_inference"
+module-name = "segmentation_inference"
 module-root = "."
 
 [tool.black]
 line-length = 100
 
 [tool.isort]
-known_first_party = ["hake_segmentation_inference"]
+known_first_party = ["segmentation_inference"]
 multi_line_output = 3
 include_trailing_comma = true
 force_grid_wrap = 0

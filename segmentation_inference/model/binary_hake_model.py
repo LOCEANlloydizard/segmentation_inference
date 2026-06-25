@@ -4,9 +4,9 @@ import torch.nn.functional as F
 from torchvision.models.segmentation.deeplabv3 import deeplabv3_resnet50
 
 
-class BinaryHakeModel(torch.nn.Module):
+class binary_hake_model(torch.nn.Module):
     """
-    Binary class for Hake segmentation models using DeepLabV3 architecture.
+    Binary class for hake segmentation models using DeepLabV3 architecture.
 
     Methods
     -------
@@ -15,7 +15,7 @@ class BinaryHakeModel(torch.nn.Module):
     """
 
     def __init__(self) -> None:
-        super(BinaryHakeModel, self).__init__()
+        super(binary_hake_model, self).__init__()
         self.network = deeplabv3_resnet50(num_classes=2)
 
     def forward(
@@ -52,8 +52,8 @@ class BinaryHakeModel(torch.nn.Module):
         softmax_output = F.softmax(interpolated_output / softmax_temperature, dim=1)
 
         return {
-            "backbone_output": backbone_output,
-            "classifier_output": classifier_output,
-            "interpolated_output": interpolated_output,
-            "softmax_output": softmax_output,
+            "backbone_output": backbone_output.squeeze(0),
+            "classifier_output": classifier_output.squeeze(0),
+            "interpolated_output": interpolated_output.squeeze(0),
+            "softmax_output": softmax_output.squeeze(0),
         }

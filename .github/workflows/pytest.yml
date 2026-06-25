@@ -32,3 +32,6 @@ jobs:
           python -m pip install --upgrade setuptools wheel
           # Install the package and all [dev] dependencies from pyproject.toml
           pip install -e ".[dev]"
+
+      - name: Run Pytest
+        run: pytest
