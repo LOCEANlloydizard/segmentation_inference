@@ -27,7 +27,7 @@ def test_binary_hake_model_inference():
     # Load model using test weight
     model = binary_hake_model().eval()
     model.load_state_dict(
-        torch.load(binary_hake_model_path, map_location=torch.device("cpu"), weights_only=False)[
+        torch.load(binary_hake_model_path, map_location=torch.device("cpu"))[
             "state_dict"
         ]
     )
