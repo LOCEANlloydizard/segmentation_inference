@@ -60,7 +60,11 @@ def test_binary_hake_model_inference():
         name="softmax_score",
     )
     softmax_score_da_test = xr.open_zarr(softmax_score_ds_path)["softmax_score"]
-    assert softmax_score_da["depth"].equals(softmax_score_da_test["depth"], atol=0.01)
+    assert np.allclose(
+        softmax_score_da.values,
+        softmax_score_da_test.values,
+        atol=0.01,
+    )
     assert softmax_score_da["ping_time"].equals(softmax_score_da_test["ping_time"])
     assert softmax_score_da["scatterer_class"].equals(softmax_score_da_test["scatterer_class"])
     assert np.allclose(softmax_score_da.values, softmax_score_da_test.values)
